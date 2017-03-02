@@ -34,7 +34,7 @@ public class User implements Serializable {
     @Column(name = "balance")
     private Long balance;
 
-    @ManyToMany(mappedBy = "usersList", cascade = CascadeType.DETACH)
+    @ManyToMany(mappedBy = "userList", cascade = CascadeType.DETACH)
     private List<Role> roleList = new ArrayList<>();
 
     @JoinColumn(name = "id_room", referencedColumnName = "id")
