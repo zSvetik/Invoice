@@ -38,7 +38,7 @@ public class Room implements Serializable {
     private List<Invoice> invoiceList = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "room")
-    private List<Users> usersList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
 
     public Room() {
     }
@@ -90,12 +90,12 @@ public class Room implements Serializable {
         this.invoiceList = invoiceList;
     }
 
-    public List<Users> getUsersList() {
-        return usersList;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setUsersList(List<Users> usersList) {
-        this.usersList = usersList;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     @Override
