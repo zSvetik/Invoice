@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "users")
-public class Users implements Serializable {
+public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -41,10 +41,10 @@ public class Users implements Serializable {
     @ManyToOne(optional = false)
     private Room room;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(Long id, String login, String password, Long balance) {
+    public User(Long id, String login, String password, Long balance) {
         this.id = id;
         this.login = login;
         this.password = password;
