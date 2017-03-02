@@ -26,7 +26,7 @@ public class Role implements Serializable {
     @JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "id", referencedColumnName = "id_role") }, inverseJoinColumns = {
             @JoinColumn(name = "id", referencedColumnName = "id_user") })
     @ManyToMany(cascade = CascadeType.DETACH)
-    private List<Users> usersList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
 
     public Role() {
     }
@@ -52,12 +52,12 @@ public class Role implements Serializable {
         this.role = role;
     }
 
-    public List<Users> getUsersList() {
-        return usersList;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setUsersList(List<Users> usersList) {
-        this.usersList = usersList;
+    public void setUserList(List<Users> userList) {
+        this.userList = userList;
     }
 
     @Override
