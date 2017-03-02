@@ -25,14 +25,12 @@ public class UserService {
     }
 
     public User getUserById(Long id) {
-        User user = userRepository.findOne(id);
-        return user;
+        return userRepository.findOne(id);
     }
     
     public User addUser(User user) {
     	logger.debug("Adding users %s with id %s", user.getLogin(), user.getId());
-    	user = userRepository.save(user);
-    	return user;
+    	return userRepository.save(user);
     }
     
     public void delUser(Long id) {
