@@ -1,6 +1,6 @@
 package com.softgroup.kuznietsov.repository;
 
-import com.softgroup.kuznietsov.jpa.Users;
+import com.softgroup.kuznietsov.jpa.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by User on 27.02.2017.
  */
-public interface UsersRepository extends CrudRepository<Users, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
     @Override
-    public List<Users> findAll();
+    public List<User> findAll();
 }

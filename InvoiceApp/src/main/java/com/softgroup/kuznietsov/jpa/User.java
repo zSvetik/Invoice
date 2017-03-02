@@ -32,7 +32,7 @@ public class User implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "balance")
-    private Long balance;
+    private Long balance = new Long(0);
 
     @ManyToMany(mappedBy = "userList", cascade = CascadeType.DETACH)
     private List<Role> roleList = new ArrayList<>();
@@ -42,6 +42,10 @@ public class User implements Serializable {
     private Room room;
 
     public User() {
+    }
+
+    public User(Long id) {
+        this.id = id;
     }
 
     public User(Long id, String login, String password, Long balance) {
@@ -115,7 +119,7 @@ public class User implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Users other = (Users) obj;
+        User other = (User) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
