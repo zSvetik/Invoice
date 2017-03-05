@@ -2,7 +2,7 @@ package com.softgroup.kuznietsov.tests.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.softgroup.kuznietsov.api.AddUserRequest;
-import com.softgroup.kuznietsov.api.InvUser;
+import com.softgroup.kuznietsov.api.UserInfo;
 import com.softgroup.kuznietsov.api.UserListReply;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,7 +43,7 @@ public class UserControllerTest {
     @Test
     public void addUserTest() throws Exception{
         AddUserRequest rq = new AddUserRequest();
-        rq.user = new InvUser();
+        rq.user = new UserInfo();
         rq.user.login = "Test1First";
         rq.user.isAdmin = true;
 

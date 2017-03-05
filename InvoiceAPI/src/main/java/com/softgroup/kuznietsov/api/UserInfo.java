@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by User on 02.03.2017.
  */
 @XmlRootElement
-public class InvUser {
+public class UserInfo {
     @XmlElement(required=false)
     public Long user_id;
     @XmlElement(required=true)

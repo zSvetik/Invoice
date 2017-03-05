@@ -1,6 +1,6 @@
 package com.softgroup.kuznietsov.services;
 
-import com.softgroup.kuznietsov.api.InvUser;
+import com.softgroup.kuznietsov.api.UserInfo;
 import com.softgroup.kuznietsov.jpa.Role;
 import com.softgroup.kuznietsov.jpa.User;
 import com.softgroup.kuznietsov.repository.RoleRepository;
@@ -30,21 +30,21 @@ public class UserMapper {
      * @param user innternal user model
      * @return external REST user model
      */
-    public InvUser fromInternal(User user) {
-        InvUser invUser = null;
+    public UserInfo fromInternal(User user) {
+        UserInfo userInfo = null;
         if (user != null) {
-            invUser = new InvUser();
-            invUser.isAdmin = false;
+            userInfo = new UserInfo();
+            userInfo.isAdmin = false;
             for (Role role : user.getRoleList()) {
                 if (role.getId().equals(new Long (1))) {
-                    invUser.isAdmin =  true;
+                    userInfo.isAdmin =  true;
                     break;
                 }
             }
-            invUser.login = user.getLogin();
-            invUser.user_id = user.getId();
+            userInfo.login = user.getLogin();
+            userInfo.user_id = user.getId();
         }
-        return invUser;
+        return userInfo;
     }
 
     /**
@@ -72,22 +72,22 @@ public class UserMapper {
      * Maps extrernal REST model to internal User;
      * If user does not exists in DB then creates new. If user already exists
      * then fetches user from DB and sets all fields from external REST model
-     * @param invUser REST model
+     * @param userInfo REST model
      * @return internal User with all required fields set
      */
-    public User toInternal(InvUser invUser) {
+    public User toInternal(UserInfo userInfo) {
         User user = null;
         //first, check if it exists
-        if (invUser.user_id != null) {
-            user = userRepository.findOne(invUser.user_id);
+        if (userInfo.user_id != null) {
+            user = userRepository.findOne(userInfo.user_id);
         }
         if (user == null) { //not found, create new
             logger.debug("Creating new user");
             user = newUser();
         }
         logger.debug("Updating existing user");
-        user.setLogin(invUser.login);
-        if (invUser.isAdmin) {
+        user.setLogin(userInfo.login);
+        if (userInfo.isAdmin) {
             Role role = roleRepository.findOne(USER_ROLE_ID);
             role.getUserList().add(user);
             user.getRoleList().add(role);

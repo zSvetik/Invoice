@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by User on 02.03.2017.
+ * Created by User on 05.03.2017.
  */
 @XmlRootElement
-public class UserListReply extends GenericReply{
-    @XmlElement(required=true)
-    public List<UserInfo> userList = new ArrayList<>();
+public class RoomListReply {
+    @XmlElement(required = true)
+    public List<RoomInfo> roomInfoList = new ArrayList<>();
 }
