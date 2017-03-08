@@ -9,7 +9,7 @@ import java.util.List;
  * Created by User on 02.03.2017.
  */
 @XmlRootElement
-public class UserListReply extends GenericReply{
+public class UserListReply extends GenericReply {
     @XmlElement(required=true)
     public List<UserInfo> userList = new ArrayList<>();
 }

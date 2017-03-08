@@ -4,10 +4,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by User on 02.03.2017.
+ * Created by User on 08.03.2017.
  */
 @XmlRootElement
-public class AddUserRequest {
+public class AddRoomRequest {
     @XmlElement(required=true)
-    public UserInfo userInfo;
+    public RoomInfo roomInfo;
 }

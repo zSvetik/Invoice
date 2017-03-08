@@ -20,6 +20,6 @@ public class RoomInfo {
     public Float area;
     @XmlElement(required = false)
     public List<InvoiceInfo> invoiceInfoList = new ArrayList<>();
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     public List<UserInfo> userInfoList = new ArrayList<>();
 }

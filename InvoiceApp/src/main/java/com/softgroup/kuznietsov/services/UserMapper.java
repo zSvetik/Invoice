@@ -27,8 +27,8 @@ public class UserMapper {
 
     /**
      * Maps internal JPA model to external REST model
-     * @param user innternal user model
-     * @return external REST user model
+     * @param user innternal userInfo model
+     * @return external REST userInfo model
      */
     public UserInfo fromInternal(User user) {
         UserInfo userInfo = null;
@@ -52,7 +52,7 @@ public class UserMapper {
      * @return newly created User with required fields set
      */
     private User newUser() {
-        //TODO: get logged user from security context
+        //TODO: get logged userInfo from security context
         String createdBy = "REST";
         User user = new User();
         boolean idOK = false;
@@ -70,8 +70,8 @@ public class UserMapper {
 
     /**
      * Maps extrernal REST model to internal User;
-     * If user does not exists in DB then creates new. If user already exists
-     * then fetches user from DB and sets all fields from external REST model
+     * If userInfo does not exists in DB then creates new. If userInfo already exists
+     * then fetches userInfo from DB and sets all fields from external REST model
      * @param userInfo REST model
      * @return internal User with all required fields set
      */
@@ -82,10 +82,10 @@ public class UserMapper {
             user = userRepository.findOne(userInfo.user_id);
         }
         if (user == null) { //not found, create new
-            logger.debug("Creating new user");
+            logger.debug("Creating new userInfo");
             user = newUser();
         }
-        logger.debug("Updating existing user");
+        logger.debug("Updating existing userInfo");
         user.setLogin(userInfo.login);
         if (userInfo.isAdmin) {
             Role role = roleRepository.findOne(USER_ROLE_ID);

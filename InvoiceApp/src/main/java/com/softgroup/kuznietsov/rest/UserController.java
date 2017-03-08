@@ -43,12 +43,12 @@ public class UserController {
         UserListReply rep = new UserListReply();
         try{
             User user;
-            user = userService.addUser(userMapper.toInternal(req.user));
+            user = userService.addUser(userMapper.toInternal(req.userInfo));
             rep.userList.add(userMapper.fromInternal(user));
         }catch(Exception e){
             rep.retcode = -1;
             rep.error_message = e.getMessage();
-            logger.error("Error adding user. Expetion: "+e.getMessage(),e);
+            logger.error("Error adding userInfo. Expetion: "+e.getMessage(),e);
         }
         return rep;
     }
@@ -61,7 +61,7 @@ public class UserController {
         }catch(Exception e){
             rep.retcode = -1;
             rep.error_message = e.getMessage();
-            logger.error("Error adding user. Expetion: "+e.getMessage(),e);
+            logger.error("Error adding userInfo. Expetion: "+e.getMessage(),e);
         }
         return rep;
     }

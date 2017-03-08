@@ -9,7 +9,7 @@ import java.util.List;
  * Created by User on 05.03.2017.
  */
 @XmlRootElement
-public class RoomListReply {
+public class RoomListReply extends GenericReply {
     @XmlElement(required = true)
     public List<RoomInfo> roomInfoList = new ArrayList<>();
 }
