@@ -35,15 +35,9 @@ public class RoomMapper {
         if (room != null) {
             roomInfo = new RoomInfo();
             roomInfo.id = room.getId();
+            roomInfo.owner = room.getOwner();
             roomInfo.guests = room.getGuests();
             roomInfo.area = room.getArea();
-            List<Invoice> invoiceList = room.getInvoiceList();
-            List<User> userList = room.getUserList();
-
-            if (invoiceList != null) {
-                // TODO finish it
-                // roomInfo.invoiceInfoList = invoiceList;
-            }
         }
         return roomInfo;
     }
@@ -62,6 +56,7 @@ public class RoomMapper {
             idOK = !roomRepository.exists(id);
         }
         room.setId(id);
+        room.setOwner("unknownOwner");
         room.setGuests(1);
         room.setArea(1);
         return room;
@@ -88,7 +83,6 @@ public class RoomMapper {
         room.setOwner(roomInfo.owner);
         room.setGuests(roomInfo.guests);
         room.setArea(room.getArea());
-        // TODO finish it
         return room;
     }
 }

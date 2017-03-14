@@ -40,8 +40,9 @@ public class RoomControllerTest {
     @Test
     public void findRoomTest() throws Exception {
         this.mockMvc.perform(get("/room/byid/2"))
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("{\"retcode\":0,\"apiVer\":\"0.0.1\",\"error_message\":null,\"roomInfoList\":[{\"id\":2,\"owner\":null,\"guests\":1,\"area\":1.0,\"invoiceInfoList\":[],\"userInfoList\":[]}]}")));
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("{\"retcode\":0,\"apiVer\":\"0.0.1\",\"error_message\":null,\"roomInfoList\":[{\"id\":2,\"owner\":\"testOwner\",\"guests\":1,\"area\":1.0}]}")));
     }
 
     @Test

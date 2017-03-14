@@ -18,8 +18,4 @@ public class RoomInfo {
     public Integer guests;
     @XmlElement(required = true)
     public Float area;
-    @XmlElement(required = false)
-    public List<InvoiceInfo> invoiceInfoList = new ArrayList<>();
-    @XmlElement(required = false)
-    public List<UserInfo> userInfoList = new ArrayList<>();
 }
