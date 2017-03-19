@@ -50,7 +50,7 @@ public class RoomControllerTest {
         Long room_id = EntityIdGenerator.random();
         AddRoomRequest roomRequest = new AddRoomRequest();
         roomRequest.roomInfo = new RoomInfo();
-        roomRequest.roomInfo.id = room_id;
+        roomRequest.roomInfo.id = room_id.toString();
         roomRequest.roomInfo.guests = 1;
         roomRequest.roomInfo.area = 1f;
         roomRequest.roomInfo.owner ="Test1Owner";

@@ -11,7 +11,7 @@ import java.util.List;
 @XmlRootElement
 public class RoomInfo {
     @XmlElement(required = false)
-    public Long id;
+    public String id;
     @XmlElement(required = true)
     public String owner;
     @XmlElement(required = true)

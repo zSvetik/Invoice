@@ -34,7 +34,7 @@ public class RoomMapper {
         RoomInfo roomInfo = null;
         if (room != null) {
             roomInfo = new RoomInfo();
-            roomInfo.id = room.getId();
+            roomInfo.id = room.getId().toString();
             roomInfo.owner = room.getOwner();
             roomInfo.guests = room.getGuests();
             roomInfo.area = room.getArea();
@@ -73,7 +73,7 @@ public class RoomMapper {
         Room room = null;
         //first, check if it exists
         if (roomInfo.id != null) {
-            room = roomRepository.findOne(roomInfo.id);
+            room = roomRepository.findOne(new Long(roomInfo.id));
         }
         if (room == null) { //not found, create new
             logger.debug("Creating new room");
@@ -82,7 +82,7 @@ public class RoomMapper {
         logger.debug("Updating existing room");
         room.setOwner(roomInfo.owner);
         room.setGuests(roomInfo.guests);
-        room.setArea(room.getArea());
+        room.setArea(roomInfo.area);
         return room;
     }
 }
